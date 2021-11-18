@@ -1,0 +1,14 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "watch:scss": "sass --watch scss/main.scss css/style.css",
+    "build:scss": "sass scss/main.scss css/style.css"
+  },
+  "author": "Ken Nersisyan",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.43.4"
+  }
+}

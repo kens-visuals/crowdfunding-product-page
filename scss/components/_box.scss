@@ -1,0 +1,10 @@
+@use './abstracts/index.scss' as *;
+
+.crowdfund {
+  &__box {
+    &--small {
+      &-disabled {
+      }
+    }
+  }
+}

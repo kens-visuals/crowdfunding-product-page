@@ -1,0 +1,24 @@
+@use './abstracts/index.scss' as *;
+
+.crowdfund {
+  &__heading {
+    &--secondary {
+    }
+
+    &--tertiary {
+    }
+  }
+
+  &__desc {
+    &--cyan {
+    }
+
+    &--grey {
+    }
+  }
+
+  &__num {
+    &-span {
+    }
+  }
+}

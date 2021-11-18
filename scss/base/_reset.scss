@@ -1,9 +1,4 @@
-$color-primary: ;
-$color-primary--dark: ;
-$color-primary--light: ;
-$color-secondary: ;
-$color-secondary--dark: ;
-$color-secondary--light: ;
+@use '../abstracts/index.scss' as *;
 
 *,
 *::before,
@@ -47,7 +42,9 @@ html {
 }
 
 body {
+  background-color: $color-primary;
   min-height: 100vh;
+  font-family: 'Commissioner', sans-serif;
   font-size: 1.6rem;
   text-rendering: optimizeSpeed;
   line-height: 1.5;

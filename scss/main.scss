@@ -1,3 +1,4 @@
-@import './base';
-@import './layout';
-@import './components';
+@use './base/index.scss';
+@use './layout/index.scss';
+@use './abstracts/index.scss';
+@use './components/index.scss';

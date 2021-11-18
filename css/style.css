@@ -1,0 +1,19 @@
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 1 | @use './abstracts/index.scss' as *;
+ *   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   scss/base/_typography.scss 1:1  @forward
+ *   scss/base/index.scss 2:1        @use
+ *   scss/main.scss 1:1              root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @use './abstracts/index.scss' as *;\a   \2502  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   scss/base/_typography.scss 1:1  @forward\a   scss/base/index.scss 2:1        @use\a   scss/main.scss 1:1              root stylesheet";
+}

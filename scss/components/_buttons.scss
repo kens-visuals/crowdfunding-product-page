@@ -1,0 +1,14 @@
+@use './abstracts/index.scss' as *;
+
+.crowdfund {
+  &__btn {
+    &--bookmark {
+    }
+
+    &--disabled {
+    }
+  }
+
+  &__bookmark {
+  }
+}

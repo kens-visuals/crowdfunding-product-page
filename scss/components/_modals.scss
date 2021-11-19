@@ -1,10 +1,11 @@
-@use './abstracts/index.scss' as *;
+@use '../abstracts/index.scss' as *;
 
 .crowdfund {
   &__modal-bg {
   }
 
   &__modal {
+    display: none;
     &--large {
     }
 

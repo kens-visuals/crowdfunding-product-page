@@ -1,8 +1,29 @@
-@use './abstracts/index.scss' as *;
+@use '../abstracts/index.scss' as *;
 
 .crowdfund {
   &__btn {
+    color: $color-secondary--light;
+    background-color: $color-primary;
+    border: 0;
+    border-radius: 5rem;
+    padding: 1.8rem 4.8rem;
+
+    &--small {
+      font-size: 1.4rem;
+      padding: 1.5rem 3rem;
+    }
+
+    &--hamburger {
+      background: 0;
+      border: 0;
+      padding: 0;
+      border-radius: 0;
+    }
+
     &--bookmark {
+      background-color: unset;
+      padding: 0;
+      border-radius: 0;
     }
 
     &--disabled {
@@ -10,6 +31,19 @@
   }
 
   &__bookmark {
+  }
+
+  &__progressbar {
+    width: 80%;
+    height: 1.1rem;
+    border-radius: 1rem;
+    background-color: $color-primary;
+
+    &-container {
+      background-color: rgba($color-secondary--dark, 0.1);
+      border-radius: 1rem;
+      margin-top: 3rem;
+    }
   }
 
   &__close {

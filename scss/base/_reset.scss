@@ -42,10 +42,9 @@ html {
 }
 
 body {
-  background-color: $color-primary;
   min-height: 100vh;
+  color: rgba($color-secondary--dark, 0.7);
   font-family: 'Commissioner', sans-serif;
   font-size: 1.6rem;
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
 }

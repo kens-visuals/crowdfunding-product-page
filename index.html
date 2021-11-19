@@ -32,7 +32,10 @@
             class="crowdfund__logo crowdfund__logo--primary"
           />
 
-          <button type="button" class="crowdfund__btn js-btn">
+          <button
+            type="button"
+            class="crowdfund__btn crowdfund__btn--hamburger js-btn"
+          >
             <img
               src="./images/icon-hamburger.svg"
               alt=""
@@ -67,7 +70,9 @@
           class="crowdfund__logo crowdfund__logo--secondary"
         />
 
-        <h1 class="crowdfund__heading">Mastercraft Bamboo Monitor Riser</h1>
+        <h1 class="crowdfund__heading crowdfund__heading--top">
+          Mastercraft Bamboo Monitor Riser
+        </h1>
         <p class="crowdfund__desc">
           A beautiful & handcrafted monitor stand to reduce neck and eye strain.
         </p>
@@ -83,19 +88,18 @@
               aria-hidden="true"
               class="crowdfund__bookmark"
             />
-            Bookmark
           </button>
         </div>
       </section>
 
-      <section class="crowdfund__box">
+      <section class="crowdfund__box" aria-label="price box">
         <div class="crowdfund__wrapper-nums">
           <p class="crowdfund__num">
             <span class="crowdfund__num-span">$89,914</span> of $100,000 backed
           </p>
 
           <p class="crowdfund__num">
-            <span class="crowdfund__num-span">$5,007</span> total backers
+            <span class="crowdfund__num-span">5,007</span> total backers
           </p>
 
           <p class="crowdfund__num">
@@ -108,7 +112,10 @@
         </div>
       </section>
 
-      <section class="crowdfund__box">
+      <section
+        class="crowdfund__box crowdfund__box--large"
+        aria-label="description and pledge box"
+      >
         <h2 class="crowdfund__heading crowdfund__heading--secondary">
           About this project
         </h2>
@@ -128,7 +135,7 @@
         </p>
 
         <figure class="crowdfund__box crowdfund__box--small">
-          <div class="crowdfund__wrapper-desc">
+          <div class="crowdfund__wrapper-title">
             <figcaption class="crowdfund__heading crowdfund__heading--tertiary">
               Bamboo Stand
             </figcaption>
@@ -143,17 +150,22 @@
             Backer member list.
           </p>
 
-          <div class="crowdfund__wrapper-desc">
-            <p class="crowdfund__num">
-              <span class="crowdfund__num-span">101</span> left
+          <div class="crowdfund__wrapper-desc crowdfund__wrapper-desc--small">
+            <p class="crowdfund__num crowdfund__num--small">
+              <span class="crowdfund__num-span crowdfund__num-span--small"
+                >101</span
+              >
+              left
             </p>
 
-            <button type="button" class="crowdfund__btn">Select Reward</button>
+            <button type="button" class="crowdfund__btn crowdfund__btn--small">
+              Select Reward
+            </button>
           </div>
         </figure>
 
         <figure class="crowdfund__box crowdfund__box--small">
-          <div class="crowdfund__wrapper-desc">
+          <div class="crowdfund__wrapper-title">
             <figcaption class="crowdfund__heading crowdfund__heading--tertiary">
               Black Edition Stand
             </figcaption>
@@ -168,17 +180,22 @@
             included.
           </p>
 
-          <div class="crowdfund__wrapper-desc">
-            <p class="crowdfund__num">
-              <span class="crowdfund__num-span">64</span> left
+          <div class="crowdfund__wrapper-desc crowdfund__wrapper-desc--small">
+            <p class="crowdfund__num crowdfund__num--small">
+              <span class="crowdfund__num-span crowdfund__num-span--small"
+                >64</span
+              >
+              left
             </p>
 
-            <button type="button" class="crowdfund__btn">Select Reward</button>
+            <button type="button" class="crowdfund__btn crowdfund__btn--small">
+              Select Reward
+            </button>
           </div>
         </figure>
 
         <figure class="crowdfund__box crowdfund__box--small">
-          <div class="crowdfund__wrapper-desc">
+          <div class="crowdfund__wrapper-title">
             <figcaption class="crowdfund__heading crowdfund__heading--tertiary">
               Mahogany Special Edition
             </figcaption>
@@ -193,20 +210,41 @@
             Shipping is included.
           </p>
 
-          <div class="crowdfund__wrapper-desc">
-            <p class="crowdfund__num">
-              <span class="crowdfund__num-span">0</span> left
+          <div class="crowdfund__wrapper-desc crowdfund__wrapper-desc--small">
+            <p class="crowdfund__num crowdfund__num--small">
+              <span class="crowdfund__num-span crowdfund__num-span--small"
+                >0</span
+              >
+              left
             </p>
 
             <button
               type="button"
-              class="crowdfund__btn crowdfund__btn--disabled"
+              class="
+                crowdfund__btn crowdfund__btn--small crowdfund__btn--disabled
+              "
             >
               Out of Stock
             </button>
           </div>
         </figure>
       </section>
+
+      <footer class="attribution">
+        Challenge by
+        <a
+          class="attribution__link"
+          href="https://www.frontendmentor.io?ref=challenge"
+          target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a
+          class="attribution__link"
+          href="https://github.com/kens-visuals"
+          target="_blank"
+          >Kens-Visuals</a
+        >.
+      </footer>
     </main>
 
     <div class="crowdfund__modal-bg">

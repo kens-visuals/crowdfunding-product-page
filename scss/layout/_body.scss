@@ -1,6 +1,12 @@
-@use './abstracts/index.scss' as *;
+@use '../abstracts/index.scss' as *;
 
-.crowdfund {
-  &__main {
-  }
+.crowdfund__main {
+  width: 100%;
+  padding-inline: 2.5rem;
+  position: absolute;
+  top: 25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }

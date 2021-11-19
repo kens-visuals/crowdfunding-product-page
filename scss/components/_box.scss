@@ -1,10 +1,51 @@
-@use './abstracts/index.scss' as *;
+@use '../abstracts/index.scss' as *;
 
 .crowdfund {
   &__box {
+    width: 100%;
+    max-width: 60rem;
+    background-color: $color-secondary--light;
+    border: 0.1rem solid rgba($color-secondary--dark, 0.1);
+    border-radius: 1rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    & > :nth-child(3) {
+      margin: 1rem 0 3rem 0;
+    }
+
+    &--large {
+      text-align: left;
+      padding: 2rem;
+    }
+
     &--small {
+      border: 0.1rem solid rgba($color-secondary--dark, 0.3);
+      text-align: left;
+      padding: 2rem;
+
+      & > *:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+
       &-disabled {
       }
+    }
+  }
+
+  &__logo {
+    &--secondary {
+      position: absolute;
+      top: -2.7rem;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 }

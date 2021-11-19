@@ -1,16 +1,31 @@
-@use './abstracts/index.scss' as *;
+@use '../abstracts/index.scss' as *;
 
 .crowdfund {
   &__heading {
+    color: $color-secondary;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 auto;
+    padding: 1rem 0;
+
+    &--top {
+      width: 80%;
+    }
+
     &--secondary {
     }
 
     &--tertiary {
+      font-size: 1.4rem;
     }
   }
 
   &__desc {
+    font-size: 1.4rem;
+    line-height: 1.7;
+
     &--cyan {
+      color: $color-primary;
     }
 
     &--grey {
@@ -18,7 +33,26 @@
   }
 
   &__num {
+    font-size: 1.4rem;
+    display: flex;
+    flex-direction: column;
+
+    &--small {
+      margin-bottom: 0;
+      align-items: center;
+      flex-direction: row;
+      gap: 1rem;
+    }
+
     &-span {
+      color: $color-secondary;
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+
+      &--small {
+        margin-bottom: 0;
+      }
     }
   }
 }

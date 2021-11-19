@@ -1,14 +1,13 @@
-@use './abstracts/index.scss' as *;
+@use '../abstracts/index.scss' as *;
 
 .crowdfund {
   &__header {
+    padding-top: 3.2rem;
+    position: relative;
   }
 
   &__logo {
     &--primary {
-    }
-
-    &--secondary {
     }
   }
 
@@ -16,14 +15,34 @@
   }
 
   &__nav {
+    width: 100%;
+    background-color: $color-secondary--light;
+    border-radius: 1rem;
+    position: absolute;
+    top: 9rem;
+
+    display: none;
   }
 
   &__list {
+    list-style: none;
   }
 
   &__item {
+    padding: 2.2rem 2.4rem;
+
+    &:not(:last-child) {
+      border-bottom: 0.1rem solid rgba($color-secondary--dark, 0.2);
+    }
   }
 
   &__link {
+    &:link,
+    &:visited {
+      color: $color-secondary;
+      font-size: 1.8rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
   }
 }

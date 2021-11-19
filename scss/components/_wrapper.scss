@@ -25,10 +25,25 @@
         background-color: rgba($color-secondary--dark, 0.3);
         margin: 2.5rem auto 0 auto;
       }
+
+      @media (min-width: 810px) {
+        margin: 0;
+      }
+    }
+
+    @media (min-width: 810px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
   }
 
   &-title {
+    @media (min-width: 810px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 
   &-desc {
@@ -39,6 +54,18 @@
 
       & > *:not(:last-child) {
         margin-bottom: 2rem;
+      }
+    }
+
+    @media (min-width: 810px) {
+      &--small {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        & > *:not(:last-child) {
+          margin-bottom: 0;
+        }
       }
     }
   }

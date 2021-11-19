@@ -7,6 +7,12 @@
     border: 0;
     border-radius: 5rem;
     padding: 1.8rem 4.8rem;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: $color-primary--dark;
+      cursor: pointer;
+    }
 
     &--small {
       font-size: 1.4rem;
@@ -24,9 +30,15 @@
       background-color: unset;
       padding: 0;
       border-radius: 0;
+
+      &:hover {
+        background-color: unset;
+        cursor: pointer;
+      }
     }
 
     &--disabled {
+      background-color: $color-secondary--dark;
     }
   }
 

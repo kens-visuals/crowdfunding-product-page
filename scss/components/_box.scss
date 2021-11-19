@@ -3,7 +3,7 @@
 .crowdfund {
   &__box {
     width: 100%;
-    max-width: 60rem;
+    max-width: 73rem;
     background-color: $color-secondary--light;
     border: 0.1rem solid rgba($color-secondary--dark, 0.1);
     border-radius: 1rem;
@@ -13,13 +13,25 @@
     padding: 3rem 2rem;
     position: relative;
 
+    @media (min-width: 810px) {
+      padding: 4rem;
+    }
+
     &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    & > *:not(:last-child) {
       margin-bottom: 2rem;
     }
 
     &--large {
       text-align: left;
       padding: 2rem;
+
+      @media (min-width: 810px) {
+        padding: 4rem;
+      }
     }
 
     &--small {

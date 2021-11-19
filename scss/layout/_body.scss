@@ -9,4 +9,12 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  @media (min-width: 810px) {
+    top: 18rem;
+  }
+
+  @media (min-width: 1140px) {
+    top: 31rem;
+  }
 }

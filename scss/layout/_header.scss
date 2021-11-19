@@ -1,13 +1,20 @@
 @use '../abstracts/index.scss' as *;
 
-.crowdfund {
-  &__hero {
-    min-height: 37vh;
-    background-image: url('../../images/image-hero-mobile.jpg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-attachment: fixed;
-    box-shadow: inset 0px 80px 35px -10px rgba(0, 0, 0, 0.5);
-    padding-inline: 2.5rem;
+.crowdfund__hero {
+  min-height: 37vh;
+  background-image: url('../../images/image-hero-mobile.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-attachment: fixed;
+  box-shadow: inset 0px 80px 35px -10px rgba(0, 0, 0, 0.5);
+  padding-inline: 2.5rem;
+
+  @media (min-width: 810px) {
+    min-height: 20.9vh;
+    background-image: url('../../images/image-hero-desktop.jpg');
+  }
+
+  @media (min-width: 1140px) {
+    min-height: 43vh;
   }
 }

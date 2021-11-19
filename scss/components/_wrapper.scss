@@ -2,9 +2,14 @@
 
 .crowdfund__wrapper {
   &-header {
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (min-width: 1140px) {
+      margin: 0;
+    }
   }
 
   &-btns {
@@ -25,16 +30,26 @@
         background-color: rgba($color-secondary--dark, 0.3);
         margin: 2.5rem auto 0 auto;
       }
-
-      @media (min-width: 810px) {
-        margin: 0;
-      }
     }
 
     @media (min-width: 810px) {
+      text-align: left;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 6rem;
+
+      & > *:not(:last-child) {
+        margin-bottom: 0;
+
+        &::after {
+          all: unset;
+        }
+      }
+
+      & > *:not(:first-child) {
+        border-left: 0.1rem solid rgba($color-secondary--dark, 0.3);
+        padding-left: 6rem;
+      }
     }
   }
 

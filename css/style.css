@@ -364,7 +364,7 @@ body {
   background-color: #3cb4ac;
   border: 0;
   border-radius: 5rem;
-  padding: 1.8rem 4.8rem;
+  padding: 1.5rem 4.8rem;
   transition: all 0.3s;
 }
 .crowdfund__btn:focus-visible {
@@ -400,6 +400,9 @@ body {
   display: flex;
   padding: 0;
   overflow: hidden;
+}
+.crowdfund__btn--bookmark.bookmarked {
+  filter: invert(39%) sepia(32%) saturate(883%) hue-rotate(129deg) brightness(94%) contrast(98%);
 }
 @media (min-width: 810px) {
   .crowdfund__btn--bookmark {

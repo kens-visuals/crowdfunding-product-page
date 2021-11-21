@@ -8,28 +8,41 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 10;
     overflow-y: scroll;
     padding: 0 1.5rem;
-
     display: none;
   }
 
   &__modal {
     width: 95%;
-    max-width: 73rem;
-    border-radius: 1rem;
     padding: 15rem 0;
-    margin: 12rem auto;
+    border-radius: 1rem;
+    background-color: $color-secondary--light;
 
-    // display: none;
     &--large {
-      background-color: $color-secondary--light;
+      display: none;
+      max-width: 73rem;
+      margin: 12rem auto;
       padding: 2rem;
       position: relative;
     }
 
     &--small {
+      max-width: 50rem;
+      padding: 3rem;
+      text-align: center;
+
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+
       display: none;
+
+      & > *:not(:last-child) {
+        margin-bottom: 2rem;
+      }
     }
   }
 }

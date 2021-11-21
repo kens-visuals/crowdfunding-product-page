@@ -152,7 +152,15 @@ body {
   border-radius: 1rem;
   position: absolute;
   top: 9rem;
-  display: none;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0.3s, opacity 0.2s, box-shadow 0.2s;
+}
+.crowdfund__nav.open-nav {
+  opacity: 1;
+  visibility: visible;
+  box-shadow: 0 10px 100px -30px black;
 }
 @media (min-width: 1140px) {
   .crowdfund__nav {
@@ -319,24 +327,36 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 10;
   overflow-y: scroll;
   padding: 0 1.5rem;
   display: none;
 }
 .crowdfund__modal {
   width: 95%;
-  max-width: 73rem;
-  border-radius: 1rem;
   padding: 15rem 0;
-  margin: 12rem auto;
+  border-radius: 1rem;
+  background-color: white;
 }
 .crowdfund__modal--large {
-  background-color: white;
+  display: none;
+  max-width: 73rem;
+  margin: 12rem auto;
   padding: 2rem;
   position: relative;
 }
 .crowdfund__modal--small {
+  max-width: 50rem;
+  padding: 3rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   display: none;
+}
+.crowdfund__modal--small > *:not(:last-child) {
+  margin-bottom: 2rem;
 }
 
 .crowdfund__btn {
@@ -562,6 +582,12 @@ body {
   .crowdfund__wrapper-input {
     justify-content: flex-end;
   }
+}
+.crowdfund__wrapper-flex {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=style.css.map */

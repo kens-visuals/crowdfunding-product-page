@@ -18,22 +18,22 @@
     }
   }
 
-  &__logo {
-    &--primary {
-    }
-  }
-
-  &__hamburger {
-  }
-
   &__nav {
     width: 100%;
     background-color: $color-secondary--light;
     border-radius: 1rem;
     position: absolute;
     top: 9rem;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.3s, opacity 0.2s, box-shadow 0.2s;
 
-    display: none;
+    &.open-nav {
+      opacity: 1;
+      visibility: visible;
+      box-shadow: 0 10px 100px -30px $color-secondary;
+    }
 
     @media (min-width: 1140px) {
       all: unset;

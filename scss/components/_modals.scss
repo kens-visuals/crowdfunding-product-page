@@ -3,23 +3,23 @@
 .crowdfund {
   &__modal-bg {
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    // padding: 2rem;
-    // padding: 12rem 2.5rem 50rem 2.5rem;
-    // padding: 10rem 1rem;
+    overflow-y: scroll;
+    padding: 0 1.5rem;
+
+    display: none;
   }
 
   &__modal {
-    width: 100%;
+    width: 95%;
     max-width: 73rem;
     border-radius: 1rem;
+    padding: 15rem 0;
+    margin: 12rem auto;
 
     // display: none;
     &--large {

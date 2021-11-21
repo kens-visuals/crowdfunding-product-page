@@ -1,5 +1,17 @@
+.mt-small {
+  margin-top: 1rem;
+}
+
 .mb-small {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+
+.mt-medium {
+  margin-top: 2rem;
+}
+
+.mb-large {
+  margin-bottom: 3rem;
 }
 
 *,
@@ -76,7 +88,16 @@ body {
   color: #3cb4ac;
 }
 .crowdfund__desc--grey {
-  color: #7a7a7a;
+  color: rgba(122, 122, 122, 0.5);
+}
+.crowdfund__desc--modal {
+  margin: 1rem 0;
+}
+@media (min-width: 1140px) {
+  .crowdfund__desc--modal {
+    grid-column: 1/-1;
+    margin-left: 4.5rem;
+  }
 }
 .crowdfund__num {
   font-size: 1.4rem;
@@ -89,6 +110,13 @@ body {
   flex-direction: row;
   gap: 1rem;
 }
+@media (min-width: 1140px) {
+  .crowdfund__num--small {
+    grid-column: 2/-1;
+    grid-row: 1/2;
+    justify-self: end;
+  }
+}
 .crowdfund__num-span {
   color: black;
   font-size: 3.2rem;
@@ -96,6 +124,7 @@ body {
   margin-bottom: 1rem;
 }
 .crowdfund__num-span--small {
+  font-size: 2rem;
   margin-bottom: 0;
 }
 
@@ -209,7 +238,7 @@ body {
 .attribution {
   font-size: 1rem;
   text-align: center;
-  margin-block: 1rem;
+  margin-block: 2rem;
 }
 .attribution__link:link, .attribution__link:visited {
   text-transform: uppercase;
@@ -240,9 +269,6 @@ body {
 .crowdfund__box:not(:last-child) {
   margin-bottom: 2rem;
 }
-.crowdfund__box > *:not(:last-child) {
-  margin-bottom: 2rem;
-}
 .crowdfund__box--large {
   text-align: left;
   padding: 2rem;
@@ -252,16 +278,16 @@ body {
     padding: 4rem;
   }
 }
-.crowdfund__box--small {
+.crowdfund__box--small, .crowdfund__box--grid {
   border: 0.1rem solid rgba(122, 122, 122, 0.3);
   text-align: left;
   padding: 2rem;
 }
-.crowdfund__box--small > *:not(:last-child) {
-  margin-bottom: 2rem;
-}
 .crowdfund__box--small-disabled {
   opacity: 0.5;
+}
+.crowdfund__box--grid {
+  padding: 0;
 }
 .crowdfund__logo--secondary {
   position: absolute;
@@ -270,21 +296,39 @@ body {
   transform: translateX(-50%);
 }
 
+.crowdfund__input {
+  width: 50%;
+  border: 0;
+  border-radius: 10rem;
+  outline: 0.1rem solid #7a7a7a;
+  padding-left: 2rem;
+}
+.crowdfund__input:focus-visible {
+  outline: 0.1rem solid #3cb4ac;
+}
+@media (min-width: 810px) {
+  .crowdfund__input {
+    width: 40%;
+  }
+}
+
 .crowdfund__modal-bg {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow-y: scroll;
+  padding: 0 1.5rem;
+  display: none;
 }
 .crowdfund__modal {
-  width: 100%;
+  width: 95%;
   max-width: 73rem;
   border-radius: 1rem;
+  padding: 15rem 0;
+  margin: 12rem auto;
 }
 .crowdfund__modal--large {
   background-color: white;
@@ -359,6 +403,15 @@ body {
   cursor: not-allowed;
   background-color: rgba(122, 122, 122, 0.1);
 }
+.crowdfund__btn--modal {
+  width: 50%;
+  padding: 1.8rem 2rem;
+}
+@media (min-width: 810px) {
+  .crowdfund__btn--modal {
+    width: 40%;
+  }
+}
 .crowdfund__progressbar {
   width: 80%;
   height: 1.1rem;
@@ -377,6 +430,28 @@ body {
   border-radius: 0;
   position: absolute;
   right: 2rem;
+}
+.crowdfund__checkbox {
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border: 1px solid #7a7a7a;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+.crowdfund__checkbox:checked {
+  background-color: #3cb4ac;
+  box-shadow: inset 0 0 0 5px white;
+}
+.crowdfund__checkbox--disabled {
+  cursor: not-allowed;
+}
+.crowdfund__checkbox--disabled:checked {
+  background-color: unset;
 }
 .crowdfund__wrapper-header {
   margin: 0 auto;
@@ -449,11 +524,44 @@ body {
     margin-bottom: 0;
   }
 }
-.crowdfund__wrapper-input {
+.crowdfund__wrapper-text {
+  padding: 2rem;
+}
+@media (min-width: 1140px) {
+  .crowdfund__wrapper-text {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.crowdfund__wrapper-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.crowdfund__wrapper-checked {
+  border-top: 1px solid rgba(122, 122, 122, 0.5);
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+}
+@media (min-width: 810px) {
+  .crowdfund__wrapper-checked {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .crowdfund__wrapper-checked > * {
+    margin-bottom: 0;
+  }
+}
+.crowdfund__wrapper-input {
+  display: flex;
   gap: 2rem;
+}
+@media (min-width: 810px) {
+  .crowdfund__wrapper-input {
+    justify-content: flex-end;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

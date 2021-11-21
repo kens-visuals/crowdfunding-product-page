@@ -21,10 +21,6 @@
       margin-bottom: 2rem;
     }
 
-    & > *:not(:last-child) {
-      margin-bottom: 2rem;
-    }
-
     &--large {
       text-align: left;
       padding: 2rem;
@@ -39,13 +35,14 @@
       text-align: left;
       padding: 2rem;
 
-      & > *:not(:last-child) {
-        margin-bottom: 2rem;
-      }
-
       &-disabled {
         opacity: 0.5;
       }
+    }
+
+    &--grid {
+      @extend .crowdfund__box--small;
+      padding: 0;
     }
   }
 

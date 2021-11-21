@@ -70,6 +70,15 @@
         background-color: rgba($color-secondary--dark, 0.1);
       }
     }
+
+    &--modal {
+      width: 50%;
+      padding: 1.8rem 2rem;
+
+      @media (min-width: 810px) {
+        width: 40%;
+      }
+    }
   }
 
   &__bookmark {
@@ -101,6 +110,29 @@
   }
 
   &__checkbox {
+    height: 25px;
+    width: 25px;
+    background-color: $color-secondary--light;
+    border: 1px solid $color-secondary--dark;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    transition-duration: 0.3s;
+
+    &:checked {
+      background-color: $color-primary;
+      box-shadow: inset 0 0 0 5px $color-secondary--light;
+    }
+
+    &--disabled {
+      cursor: not-allowed;
+
+      &:checked {
+        background-color: unset;
+      }
+    }
   }
 
   &__check-icon {

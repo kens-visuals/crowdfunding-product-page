@@ -32,7 +32,16 @@
     }
 
     &--grey {
-      color: $color-secondary--dark;
+      color: rgba($color-secondary--dark, 0.5);
+    }
+
+    &--modal {
+      margin: 1rem 0;
+
+      @media (min-width: 1140px) {
+        grid-column: 1 / -1;
+        margin-left: 4.5rem;
+      }
     }
   }
 
@@ -46,6 +55,12 @@
       align-items: center;
       flex-direction: row;
       gap: 1rem;
+
+      @media (min-width: 1140px) {
+        grid-column: 2 / -1;
+        grid-row: 1 / 2;
+        justify-self: end;
+      }
     }
 
     &-span {
@@ -55,6 +70,7 @@
       margin-bottom: 1rem;
 
       &--small {
+        font-size: 2rem;
         margin-bottom: 0;
       }
     }

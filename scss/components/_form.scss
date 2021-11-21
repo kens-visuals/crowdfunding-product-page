@@ -1,9 +1,17 @@
 @use '../abstracts/index.scss' as *;
 
-.crowdfund {
-  &__form {
+.crowdfund__input {
+  width: 50%;
+  border: 0;
+  border-radius: 10rem;
+  outline: 0.1rem solid $color-secondary--dark;
+  padding-left: 2rem;
+
+  &:focus-visible {
+    outline: 0.1rem solid $color-primary;
   }
 
-  &__input {
+  @media (min-width: 810px) {
+    width: 40%;
   }
 }

@@ -11,7 +11,15 @@
     z-index: 10;
     overflow-y: scroll;
     padding: 0 1.5rem;
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+
+    transition: all 0.3s;
+
+    &.is-visible {
+      visibility: visible;
+      opacity: 1;
+    }
   }
 
   &__modal {
@@ -21,11 +29,18 @@
     background-color: $color-secondary--light;
 
     &--large {
-      display: none;
       max-width: 73rem;
       margin: 12rem auto;
       padding: 2rem;
       position: relative;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.5s;
+
+      &.is-visible {
+        visibility: visible;
+        opacity: 1;
+      }
     }
 
     &--small {

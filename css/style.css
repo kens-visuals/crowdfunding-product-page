@@ -80,6 +80,13 @@ body {
   margin: 0;
   padding: 0;
 }
+.crowdfund__heading--modal {
+  transition: all 0.3s;
+}
+.crowdfund__heading--modal:hover {
+  color: #3cb4ac;
+  cursor: pointer;
+}
 .crowdfund__desc {
   font-size: clamp(1.4rem, 2vw, 1.6rem);
   line-height: 1.7;
@@ -93,7 +100,7 @@ body {
 .crowdfund__desc--modal {
   margin: 1rem 0;
 }
-@media (min-width: 1140px) {
+@media (min-width: 810px) {
   .crowdfund__desc--modal {
     grid-column: 1/-1;
     margin-left: 4.5rem;
@@ -110,7 +117,7 @@ body {
   flex-direction: row;
   gap: 1rem;
 }
-@media (min-width: 1140px) {
+@media (min-width: 810px) {
   .crowdfund__num--small {
     grid-column: 2/-1;
     grid-row: 1/2;
@@ -306,10 +313,13 @@ body {
 
 .crowdfund__input {
   width: 50%;
+  color: black;
   border: 0;
   border-radius: 10rem;
+  font-weight: 700;
   outline: 0.1rem solid #7a7a7a;
-  padding-left: 2rem;
+  padding-left: 4rem;
+  position: relative;
 }
 .crowdfund__input:focus-visible {
   outline: 0.1rem solid #3cb4ac;
@@ -330,7 +340,13 @@ body {
   z-index: 10;
   overflow-y: scroll;
   padding: 0 1.5rem;
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.crowdfund__modal-bg.is-visible {
+  visibility: visible;
+  opacity: 1;
 }
 .crowdfund__modal {
   width: 95%;
@@ -339,11 +355,17 @@ body {
   background-color: white;
 }
 .crowdfund__modal--large {
-  display: none;
   max-width: 73rem;
   margin: 12rem auto;
   padding: 2rem;
   position: relative;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.crowdfund__modal--large.is-visible {
+  visibility: visible;
+  opacity: 1;
 }
 .crowdfund__modal--small {
   max-width: 50rem;
@@ -454,6 +476,9 @@ body {
   position: absolute;
   right: 2rem;
 }
+.crowdfund__close:hover {
+  cursor: pointer;
+}
 .crowdfund__checkbox {
   height: 25px;
   width: 25px;
@@ -550,7 +575,7 @@ body {
 .crowdfund__wrapper-text {
   padding: 2rem;
 }
-@media (min-width: 1140px) {
+@media (min-width: 810px) {
   .crowdfund__wrapper-text {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -563,10 +588,14 @@ body {
 }
 .crowdfund__wrapper-checked {
   border-top: 1px solid rgba(122, 122, 122, 0.5);
-  padding: 2rem;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  transition: all 0.4s;
 }
 @media (min-width: 810px) {
   .crowdfund__wrapper-checked {
@@ -577,7 +606,14 @@ body {
     margin-bottom: 0;
   }
 }
+.crowdfund__wrapper-checked.is-checked {
+  padding: 2rem;
+  visibility: visible;
+  opacity: 1;
+  height: unset;
+}
 .crowdfund__wrapper-input {
+  position: relative;
   display: flex;
   gap: 2rem;
 }
@@ -586,11 +622,20 @@ body {
     justify-content: flex-end;
   }
 }
+.crowdfund__wrapper-input::before {
+  content: "$";
+  color: #7a7a7a;
+  position: absolute;
+  top: 32%;
+  left: 7rem;
+  z-index: 10;
+}
 .crowdfund__wrapper-flex {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

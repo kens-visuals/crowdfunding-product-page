@@ -110,7 +110,8 @@
     position: absolute;
     right: 2rem;
 
-    &-icon {
+    &:hover {
+      cursor: pointer;
     }
   }
 

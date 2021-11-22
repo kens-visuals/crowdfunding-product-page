@@ -21,6 +21,15 @@
       margin: 0;
       padding: 0;
     }
+
+    &--modal {
+      transition: all 0.3s;
+
+      &:hover {
+        color: $color-primary;
+        cursor: pointer;
+      }
+    }
   }
 
   &__desc {
@@ -38,7 +47,7 @@
     &--modal {
       margin: 1rem 0;
 
-      @media (min-width: 1140px) {
+      @media (min-width: 810px) {
         grid-column: 1 / -1;
         margin-left: 4.5rem;
       }
@@ -56,7 +65,7 @@
       flex-direction: row;
       gap: 1rem;
 
-      @media (min-width: 1140px) {
+      @media (min-width: 810px) {
         grid-column: 2 / -1;
         grid-row: 1 / 2;
         justify-self: end;

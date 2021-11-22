@@ -40,7 +40,7 @@
               src="./images/icon-hamburger.svg"
               alt=""
               aria-hidden="true"
-              class="crowdfund__hamburger js-hamburger-icon"
+              class="crowdfund__hamburger"
             />
           </button>
         </div>
@@ -159,7 +159,10 @@
               left
             </p>
 
-            <button type="button" class="crowdfund__btn crowdfund__btn--small">
+            <button
+              type="button"
+              class="crowdfund__btn crowdfund__btn--small js-select"
+            >
               Select Reward
             </button>
           </div>
@@ -189,7 +192,10 @@
               left
             </p>
 
-            <button type="button" class="crowdfund__btn crowdfund__btn--small">
+            <button
+              type="button"
+              class="crowdfund__btn crowdfund__btn--small js-select"
+            >
               Select Reward
             </button>
           </div>
@@ -252,9 +258,9 @@
       >.
     </footer>
 
-    <div class="crowdfund__modal-bg">
-      <div class="crowdfund__modal crowdfund__modal--large">
-        <button class="crowdfund__close">
+    <div class="crowdfund__modal-bg js-modal-bg">
+      <div class="crowdfund__modal crowdfund__modal--large js-modal">
+        <button class="crowdfund__close js-modal-close">
           <img
             src="./images/icon-close-modal.svg"
             alt=""
@@ -280,12 +286,17 @@
                 class="crowdfund__checkbox"
                 name="pledge"
               />
-              <div class="crowdfund__wrapper-figcaption">
-                <figcaption
-                  class="crowdfund__heading crowdfund__heading--tertiary"
+              <div class="crowdfund__wrapper-label">
+                <label
+                  for="pledge"
+                  class="
+                    crowdfund__heading
+                    crowdfund__heading--tertiary
+                    crowdfund__heading--modal
+                  "
                 >
                   Pledge with no reward
-                </figcaption>
+                </label>
               </div>
             </div>
             <p class="crowdfund__desc crowdfund__desc--modal">
@@ -301,17 +312,22 @@
             <div class="crowdfund__wrapper-checkbox">
               <input
                 type="checkbox"
-                id="pledge"
-                class="crowdfund__checkbox"
+                id="bamboo"
+                class="crowdfund__checkbox js-checkbox"
                 name="pledge"
               />
 
-              <div class="crowdfund__wrapper-figcaption">
-                <figcaption
-                  class="crowdfund__heading crowdfund__heading--tertiary"
+              <div class="crowdfund__wrapper-label">
+                <label
+                  for="bamboo"
+                  class="
+                    crowdfund__heading
+                    crowdfund__heading--tertiary
+                    crowdfund__heading--modal
+                  "
                 >
                   Bamboo Stand
-                </figcaption>
+                </label>
                 <p class="crowdfund__desc crowdfund__desc--cyan">
                   Pledge $25 or more
                 </p>
@@ -332,7 +348,7 @@
             </p>
           </div>
 
-          <div class="crowdfund__wrapper-checked">
+          <div class="crowdfund__wrapper-checked js-checked">
             <p class="crowdfund__decs crowdfund__desc--grey mb-large">
               Enter your pledge
             </p>
@@ -359,17 +375,22 @@
             <div class="crowdfund__wrapper-checkbox">
               <input
                 type="checkbox"
-                id="pledge"
-                class="crowdfund__checkbox"
+                id="black"
+                class="crowdfund__checkbox js-checkbox"
                 name="pledge"
               />
 
-              <div class="crowdfund__wrapper-figcaption">
-                <figcaption
-                  class="crowdfund__heading crowdfund__heading--tertiary"
+              <div class="crowdfund__wrapper-label">
+                <label
+                  for="black"
+                  class="
+                    crowdfund__heading
+                    crowdfund__heading--tertiary
+                    crowdfund__heading--modal
+                  "
                 >
                   Black Edition Stand
-                </figcaption>
+                </label>
                 <p class="crowdfund__desc crowdfund__desc--cyan">
                   Pledge $75 or more
                 </p>
@@ -390,7 +411,7 @@
             </p>
           </div>
 
-          <div class="crowdfund__wrapper-checked">
+          <div class="crowdfund__wrapper-checked js-checked">
             <p class="crowdfund__decs crowdfund__desc--grey mb-large">
               Enter your pledge
             </p>
@@ -426,12 +447,10 @@
                 name="pledge"
               />
 
-              <div class="crowdfund__wrapper-figcaption">
-                <figcaption
-                  class="crowdfund__heading crowdfund__heading--tertiary"
-                >
+              <div class="crowdfund__wrapper-label">
+                <label class="crowdfund__heading crowdfund__heading--tertiary">
                   Mahogany Special Edition
-                </figcaption>
+                </label>
                 <p class="crowdfund__desc crowdfund__desc--cyan">
                   Pledge $200 or more
                 </p>
@@ -454,8 +473,8 @@
         </figure>
       </div>
 
-      <div class="crowdfund__wrapper-flex">
-        <div class="crowdfund__modal crowdfund__modal--small">
+      <div class="crowdfund__wrapper-flex js-wrapper-flex">
+        <div class="crowdfund__modal crowdfund__modal--small js-modal">
           <img
             src="./images/icon-check.svg"
             alt=""

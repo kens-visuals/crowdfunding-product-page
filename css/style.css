@@ -98,6 +98,7 @@ body {
 .crowdfund__desc {
   font-size: clamp(1.4rem, 2vw, 1.6rem);
   line-height: 1.7;
+  transition: color 0.2s;
 }
 .crowdfund__desc--cyan {
   color: #3cb4ac;
@@ -113,6 +114,9 @@ body {
     grid-column: 1/-1;
     margin-left: 4.5rem;
   }
+}
+.crowdfund__desc.error-text {
+  color: #b43c3c;
 }
 .crowdfund__num {
   font-size: 1.4rem;
@@ -276,7 +280,7 @@ body {
   width: 100%;
   max-width: 73rem;
   background-color: white;
-  border: 0.1rem solid rgba(122, 122, 122, 0.1);
+  border: 0.1rem solid rgba(122, 122, 122, 0.3);
   border-radius: 1rem;
   font-size: 1.6rem;
   font-weight: 500;

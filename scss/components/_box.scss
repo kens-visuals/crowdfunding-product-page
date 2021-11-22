@@ -31,7 +31,7 @@
     }
 
     &--small {
-      border: 0.1rem solid rgba($color-secondary--dark, 0.3);
+      border: 0.2rem solid rgba($color-secondary--dark, 0.3);
       text-align: left;
       padding: 2rem;
 
@@ -43,6 +43,11 @@
     &--grid {
       @extend .crowdfund__box--small;
       padding: 0;
+      transition: border 0.3s;
+
+      &.active-grid {
+        border: 0.2rem solid $color-primary;
+      }
     }
   }
 

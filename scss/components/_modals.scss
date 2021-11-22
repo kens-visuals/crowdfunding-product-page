@@ -16,7 +16,7 @@
 
     transition: all 0.3s;
 
-    &.is-visible {
+    &.is-modal-visible {
       visibility: visible;
       opacity: 1;
     }
@@ -37,7 +37,7 @@
       opacity: 0;
       transition: all 0.5s;
 
-      &.is-visible {
+      &.is-modal-visible {
         visibility: visible;
         opacity: 1;
       }

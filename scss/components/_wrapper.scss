@@ -85,9 +85,6 @@
     }
   }
 
-  &-figcaption {
-  }
-
   &-text {
     padding: 2rem;
 
@@ -104,12 +101,21 @@
   }
 
   &-checked {
+    height: 0;
     border-top: 1px solid rgba($color-secondary--dark, 0.5);
-    // padding: 2rem;
-    padding: 0;
+    opacity: 0;
+    visibility: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: all 0.2s;
+
+    &.is-checked {
+      height: unset;
+      padding: 2rem;
+      opacity: 1;
+      visibility: visible;
+    }
 
     @media (min-width: 810px) {
       flex-direction: row;
@@ -118,19 +124,6 @@
       & > * {
         margin-bottom: 0;
       }
-    }
-    // display: none;
-    visibility: hidden;
-    opacity: 0;
-    height: 0;
-
-    transition: all 0.4s;
-
-    &.is-checked {
-      padding: 2rem;
-      visibility: visible;
-      opacity: 1;
-      height: unset;
     }
   }
 

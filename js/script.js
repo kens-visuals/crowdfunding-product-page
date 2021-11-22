@@ -11,14 +11,18 @@ const hamburgerBtn = document.querySelector('.js-hamburger');
 const modals = document.querySelectorAll('.js-modal');
 const modalBg = document.querySelector('.js-modal-bg');
 const wrapperFlex = document.querySelector('.js-wrapper-flex');
-const modalCloseBtn = document.querySelector('.js-modal-close');
+const modalCloseBtns = document.querySelectorAll('.js-modal-close');
 
 const figures = document.querySelectorAll('.js-figure');
 const selectBtns = document.querySelectorAll('.js-select');
 const checkboxes = document.querySelectorAll('.js-checkbox');
 const checkedBlocks = document.querySelectorAll('.js-checked');
 const inputs = document.querySelectorAll('.js-input');
-// const errors = document.querySelectorAll('.js-error-text');
+const continueBtns = document.querySelectorAll('.js-continue');
+const amountNum = document.querySelector('.js-amount-num');
+const backerNum = document.querySelector('.js-backers-num');
+
+let inputAmount = 0;
 
 const [modalLarge, modalSmall] = modals;
 
@@ -61,13 +65,18 @@ const toggleBookamrkBtn = function () {
 const closeModal = function () {
   modalBg.classList.remove('is-modal-visible');
   modalLarge.classList.remove('is-modal-visible');
+  modalSmall.classList.remove('is-modal-visible');
 };
 
 const toggleModalBg = function () {
   classRemover(figures, 'active-grid');
   classRemover(checkedBlocks, 'is-checked');
-  // eslint-disable-next-line no-return-assign
-  checkboxes.forEach((checkbox) => (checkbox.checked = false));
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.checked = false;
+  });
+
+  //   document.body.style.overflow = 'hidden';
 
   modalBg.classList.add('is-modal-visible');
   modalLarge.classList.add('is-modal-visible');
@@ -98,19 +107,36 @@ const validateInput = function (e) {
     /[a-zA-Z,/<>\?;':""[\]\\{}\|`~!@#\$%\^&\*()_=\+\-]+/g.test(value)
   ) {
     setErrorState(errorText, 'Cannot be a letter or special character');
+    // eslint-disable-next-line no-useless-escape
   } else if (value.split(/[\.]/).length > 2) {
     setErrorState(errorText, "Can't have two dots");
   } else {
     setSuccessState(errorText);
+    inputAmount = value;
   }
 };
+
+continueBtns.forEach((btn) =>
+  btn.addEventListener('click', () => {
+    amountNum.textContent = `$${
+      +inputAmount + +amountNum.textContent.match(/\d/g).join('')
+    }`;
+
+    backerNum.textContent =
+      parseInt(backerNum.textContent.match(/\d/g).join(''), 10) + 1;
+
+    wrapperFlex.classList.add('is-flex');
+    modalLarge.classList.add('is-none');
+    modalSmall.classList.add('is-modal-visible');
+  })
+);
 
 hamburgerBtn.addEventListener('click', toggleNav);
 bookmarkBtn.addEventListener('click', toggleBookamrkBtn);
 
 selectBtns.forEach((btn) => btn.addEventListener('click', toggleModalBg));
 
-modalCloseBtn.addEventListener('click', closeModal);
+modalCloseBtns.forEach((btn) => btn.addEventListener('click', closeModal));
 
 checkboxes.forEach((checkbox) =>
   checkbox.addEventListener('click', toggleFigureStyles)
@@ -121,6 +147,7 @@ inputs.forEach((input) =>
 );
 
 window.addEventListener('load', () => {
+  inputAmount = 0;
   inputs.forEach((input) => {
     input.value = '';
   });

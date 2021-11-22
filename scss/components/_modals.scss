@@ -41,6 +41,10 @@
         visibility: visible;
         opacity: 1;
       }
+
+      &.is-none {
+        display: none;
+      }
     }
 
     &--small {
@@ -53,7 +57,14 @@
       flex-direction: column;
       justify-content: center;
 
-      display: none;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.5s;
+
+      &.is-modal-visible {
+        visibility: visible;
+        opacity: 1;
+      }
 
       & > *:not(:last-child) {
         margin-bottom: 2rem;

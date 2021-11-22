@@ -383,6 +383,9 @@ body {
   visibility: visible;
   opacity: 1;
 }
+.crowdfund__modal--large.is-none {
+  display: none;
+}
 .crowdfund__modal--small {
   max-width: 50rem;
   padding: 3rem;
@@ -391,7 +394,13 @@ body {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.crowdfund__modal--small.is-modal-visible {
+  visibility: visible;
+  opacity: 1;
 }
 .crowdfund__modal--small > *:not(:last-child) {
   margin-bottom: 2rem;
@@ -648,10 +657,12 @@ body {
 }
 .crowdfund__wrapper-flex {
   min-height: 100vh;
+  display: none;
+}
+.crowdfund__wrapper-flex.is-flex {
   display: flex;
   align-items: center;
   justify-content: center;
-  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -10,7 +10,6 @@ const hamburgerBtn = document.querySelector('.js-hamburger');
 
 const modals = document.querySelectorAll('.js-modal');
 const modalBg = document.querySelector('.js-modal-bg');
-const wrapperFlex = document.querySelector('.js-wrapper-flex');
 const modalCloseBtns = document.querySelectorAll('.js-modal-close');
 
 const figures = document.querySelectorAll('.js-figure');
@@ -27,7 +26,11 @@ let inputAmount = 0;
 const [modalLarge, modalSmall] = modals;
 
 const setImg = (imgName, className) =>
-  `<img src="./images/${imgName}.svg" alt="" aria-hidden="true" class="crowdfund__${className}" />`;
+  `<img src="./images/${imgName}.svg" 
+        alt="" 
+        aria-hidden="true" 
+        class="crowdfund__${className}" 
+    />`;
 
 const classRemover = (items, className) =>
   items.forEach((item) => item.classList.remove(className));
@@ -64,8 +67,13 @@ const toggleBookamrkBtn = function () {
 
 const closeModal = function () {
   modalBg.classList.remove('is-modal-visible');
+  modalLarge.classList.remove('is-none');
   modalLarge.classList.remove('is-modal-visible');
   modalSmall.classList.remove('is-modal-visible');
+
+  inputs.forEach((input) => {
+    input.value = '';
+  });
 };
 
 const toggleModalBg = function () {
@@ -110,6 +118,10 @@ const validateInput = function (e) {
     // eslint-disable-next-line no-useless-escape
   } else if (value.split(/[\.]/).length > 2) {
     setErrorState(errorText, "Can't have two dots");
+  } else if (e.target.id === 'amount-25' && value < 25) {
+    setErrorState(errorText, 'Cannot be less than $25');
+  } else if (e.target.id === 'amount-75' && value < 75) {
+    setErrorState(errorText, 'Cannot be less than $75');
   } else {
     setSuccessState(errorText);
     inputAmount = value;
@@ -125,7 +137,6 @@ continueBtns.forEach((btn) =>
     backerNum.textContent =
       parseInt(backerNum.textContent.match(/\d/g).join(''), 10) + 1;
 
-    wrapperFlex.classList.add('is-flex');
     modalLarge.classList.add('is-none');
     modalSmall.classList.add('is-modal-visible');
   })

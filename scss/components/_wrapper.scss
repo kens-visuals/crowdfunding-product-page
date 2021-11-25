@@ -48,7 +48,7 @@
 
       & > *:not(:first-child) {
         border-left: 0.1rem solid rgba($color-secondary--dark, 0.3);
-        padding-left: 6rem;
+        padding: 0 4rem 0 4rem;
       }
     }
   }

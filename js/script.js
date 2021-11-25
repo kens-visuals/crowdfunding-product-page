@@ -89,6 +89,8 @@ const closeModal = function () {
   errorTexts.forEach((text) => {
     setSuccessState(text);
   });
+
+  document.body.classList.remove('is-overflow');
 };
 
 const toggleModalBg = function () {
@@ -99,7 +101,7 @@ const toggleModalBg = function () {
     checkbox.checked = false;
   });
 
-  //   document.body.style.overflow = 'hidden';
+  document.body.classList.add('is-overflow');
 
   modalBg.classList.add('is-modal-visible');
   modalLarge.classList.add('is-modal-visible');
@@ -155,6 +157,8 @@ continueBtns.forEach((btn) =>
 
     modalLarge.classList.add('is-none');
     modalSmall.classList.add('is-modal-visible');
+
+    document.body.classList.remove('is-overflow');
   })
 );
 

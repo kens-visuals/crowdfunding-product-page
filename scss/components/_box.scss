@@ -5,7 +5,7 @@
     width: 100%;
     max-width: 73rem;
     background-color: $color-secondary--light;
-    border: 0.1rem solid rgba($color-secondary--dark, 0.3);
+    border: 0.1rem solid rgba($color-secondary--dark, 0.1);
     border-radius: 1rem;
     font-size: 1.6rem;
     font-weight: 500;
@@ -31,7 +31,7 @@
     }
 
     &--small {
-      border: 0.2rem solid rgba($color-secondary--dark, 0.3);
+      border: 0.2rem solid rgba($color-secondary--dark, 0.2);
       text-align: left;
       padding: 2rem;
 

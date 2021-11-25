@@ -17,7 +17,7 @@
     }
 
     &--tertiary {
-      font-size: 1.4rem;
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
       margin: 0;
       padding: 0;
     }
@@ -33,7 +33,7 @@
   }
 
   &__desc {
-    font-size: clamp(1.4rem, 2vw, 1.6rem);
+    font-size: clamp(1.4rem, 2vw, 1.7rem);
     line-height: 1.7;
     transition: color 0.2s;
 
@@ -84,7 +84,7 @@
       margin-bottom: 1rem;
 
       &--small {
-        font-size: 2rem;
+        font-size: clamp(2rem, 4vw, 3rem);
         margin-bottom: 0;
       }
     }

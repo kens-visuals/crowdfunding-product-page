@@ -340,6 +340,9 @@ body {
 .crowdfund__input:focus-visible {
   outline: 0.1rem solid #3cb4ac;
 }
+.crowdfund__input::placeholder {
+  color: #7a7a7a;
+}
 @media (min-width: 810px) {
   .crowdfund__input {
     width: 40%;

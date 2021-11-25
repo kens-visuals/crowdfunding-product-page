@@ -20,6 +20,8 @@ const inputs = document.querySelectorAll('.js-input');
 const continueBtns = document.querySelectorAll('.js-continue');
 const amountNum = document.querySelector('.js-amount-num');
 const backerNum = document.querySelector('.js-backers-num');
+const errorTexts = document.querySelectorAll('.js-error');
+const progressBar = document.querySelector('.js-progressbar');
 
 let inputAmount = 0;
 
@@ -34,6 +36,15 @@ const setImg = (imgName, className) =>
 
 const classRemover = (items, className) =>
   items.forEach((item) => item.classList.remove(className));
+
+const getNumber = (text) => +text.textContent.match(/\d/g).join('');
+const formatNumber = () =>
+  `$${Math.trunc(+inputAmount + getNumber(amountNum)).toLocaleString('en')}`;
+
+const calcProgresBarWidth = function (total, target) {
+  const percent = (total / target) * 100;
+  return percent <= 100 ? percent : 100;
+};
 
 const setErrorState = function (item, msg) {
   item.classList.add('error-text');
@@ -73,6 +84,10 @@ const closeModal = function () {
 
   inputs.forEach((input) => {
     input.value = '';
+  });
+
+  errorTexts.forEach((text) => {
+    setSuccessState(text);
   });
 };
 
@@ -130,12 +145,13 @@ const validateInput = function (e) {
 
 continueBtns.forEach((btn) =>
   btn.addEventListener('click', () => {
-    amountNum.textContent = `$${
-      +inputAmount + +amountNum.textContent.match(/\d/g).join('')
-    }`;
+    amountNum.textContent = formatNumber();
+    backerNum.textContent = getNumber(backerNum) + 1;
 
-    backerNum.textContent =
-      parseInt(backerNum.textContent.match(/\d/g).join(''), 10) + 1;
+    progressBar.style.width = `${calcProgresBarWidth(
+      getNumber(amountNum),
+      100000
+    )}%`;
 
     modalLarge.classList.add('is-none');
     modalSmall.classList.add('is-modal-visible');

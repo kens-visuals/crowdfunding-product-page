@@ -2,7 +2,7 @@
 
 .crowdfund__hero {
   min-height: 37vh;
-  background-image: url('../../images/image-hero-mobile.jpg');
+  background-image: url('./../images/image-hero-mobile.jpg');
   background-repeat: no-repeat;
   background-size: contain;
   background-attachment: fixed;
@@ -11,7 +11,7 @@
 
   @media (min-width: 810px) {
     min-height: 20.9vh;
-    background-image: url('../../images/image-hero-desktop.jpg');
+    background-image: url('./../images/image-hero-desktop.jpg');
   }
 
   @media (min-width: 1140px) {

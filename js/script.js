@@ -1,32 +1,37 @@
+/* eslint-disable no-useless-escape */
+/* eslint-disable no-return-assign */
 /* eslint-disable no-param-reassign */
 /* eslint-disable function-paren-newline */
 /* eslint-disable comma-dangle */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable func-names */
 
+let inputAmount = 0;
+
+// Navigation Variables
 const nav = document.querySelector('.js-nav');
 const bookmarkBtn = document.querySelector('.js-bookmark');
 const hamburgerBtn = document.querySelector('.js-hamburger');
 
-const modals = document.querySelectorAll('.js-modal');
+// Modals' Variables
 const modalBg = document.querySelector('.js-modal-bg');
+const modals = document.querySelectorAll('.js-modal');
 const modalCloseBtns = document.querySelectorAll('.js-modal-close');
+const [modalLarge, modalSmall] = modals;
 
+// Figures' Variables
+const amountNum = document.querySelector('.js-amount-num');
+const backerNum = document.querySelector('.js-backers-num');
+const progressBar = document.querySelector('.js-progressbar');
+const inputs = document.querySelectorAll('.js-input');
 const figures = document.querySelectorAll('.js-figure');
+const errorTexts = document.querySelectorAll('.js-error');
 const selectBtns = document.querySelectorAll('.js-select');
 const checkboxes = document.querySelectorAll('.js-checkbox');
 const checkedBlocks = document.querySelectorAll('.js-checked');
-const inputs = document.querySelectorAll('.js-input');
 const continueBtns = document.querySelectorAll('.js-continue');
-const amountNum = document.querySelector('.js-amount-num');
-const backerNum = document.querySelector('.js-backers-num');
-const errorTexts = document.querySelectorAll('.js-error');
-const progressBar = document.querySelector('.js-progressbar');
 
-let inputAmount = 0;
-
-const [modalLarge, modalSmall] = modals;
-
+// Helper functions
 const setImg = (imgName, className) =>
   `<img src="./images/${imgName}.svg" 
         alt="" 
@@ -34,10 +39,11 @@ const setImg = (imgName, className) =>
         class="crowdfund__${className}" 
     />`;
 
-const classRemover = (items, className) =>
+const classesRemover = (items, className) =>
   items.forEach((item) => item.classList.remove(className));
 
 const getNumber = (text) => +text.textContent.match(/\d/g).join('');
+
 const formatNumber = () =>
   `$${Math.trunc(+inputAmount + getNumber(amountNum)).toLocaleString('en')}`;
 
@@ -56,6 +62,7 @@ const setSuccessState = function (item) {
   item.textContent = 'Enter your pledge';
 };
 
+// Callback functions
 const toggleNav = function () {
   if (!nav.classList.contains('open-nav')) {
     nav.classList.add('open-nav');
@@ -81,63 +88,55 @@ const closeModal = function () {
   modalLarge.classList.remove('is-none');
   modalLarge.classList.remove('is-modal-visible');
   modalSmall.classList.remove('is-modal-visible');
-
-  inputs.forEach((input) => {
-    input.value = '';
-  });
-
-  errorTexts.forEach((text) => {
-    setSuccessState(text);
-  });
-
   document.body.classList.remove('is-overflow');
+
+  inputs.forEach((input) => (input.value = ''));
+
+  errorTexts.forEach((text) => setSuccessState(text));
 };
 
 const toggleModalBg = function () {
-  classRemover(figures, 'active-grid');
-  classRemover(checkedBlocks, 'is-checked');
+  classesRemover(figures, 'active-grid');
+  classesRemover(checkedBlocks, 'is-checked');
 
-  checkboxes.forEach((checkbox) => {
-    checkbox.checked = false;
-  });
-
-  document.body.classList.add('is-overflow');
+  checkboxes.forEach((checkbox) => (checkbox.checked = false));
 
   modalBg.classList.add('is-modal-visible');
   modalLarge.classList.add('is-modal-visible');
+  document.body.classList.add('is-overflow');
 };
 
 const toggleFigureStyles = function (e) {
   const target = e.target.closest('.js-figure');
 
-  classRemover(figures, 'active-grid');
-  classRemover(checkedBlocks, 'is-checked');
+  classesRemover(figures, 'active-grid');
+  classesRemover(checkedBlocks, 'is-checked');
 
   target.classList.add('active-grid');
   target.lastElementChild.classList.add('is-checked');
 };
 
-const validateInput = function (e) {
-  const { value, parentElement } = e.target;
+const validateInputs = function (e) {
+  const { value, parentElement, id } = e.target;
   const errorText = parentElement.previousElementSibling;
+  const regExp = {
+    zero: /^0\d+/g,
+    letter: /[a-zA-Z,/<>\?;':""[\]\\{}\|`~!@#\$%\^&\*()_=\+\-]+/g,
+  };
 
-  if (value === '0' || /^0\d+/g.test(value)) {
+  if (value === '0' || regExp.zero.test(value)) {
     setErrorState(errorText, 'Cannot be zero or start with zero');
   } else if (value > 999999) {
     setErrorState(errorText, 'WTF!!! WHO ARE YOU???');
   } else if (value < 0) {
     setErrorState(errorText, 'Cannot be negative');
-  } else if (
-    // eslint-disable-next-line no-useless-escape
-    /[a-zA-Z,/<>\?;':""[\]\\{}\|`~!@#\$%\^&\*()_=\+\-]+/g.test(value)
-  ) {
+  } else if (regExp.letter.test(value)) {
     setErrorState(errorText, 'Cannot be a letter or special character');
-    // eslint-disable-next-line no-useless-escape
   } else if (value.split(/[\.]/).length > 2) {
     setErrorState(errorText, "Can't have two dots");
-  } else if (e.target.id === 'amount-25' && value < 25) {
+  } else if (id === 'amount-25' && value < 25) {
     setErrorState(errorText, 'Cannot be less than $25');
-  } else if (e.target.id === 'amount-75' && value < 75) {
+  } else if (id === 'amount-75' && value < 75) {
     setErrorState(errorText, 'Cannot be less than $75');
   } else {
     setSuccessState(errorText);
@@ -145,41 +144,43 @@ const validateInput = function (e) {
   }
 };
 
-continueBtns.forEach((btn) =>
-  btn.addEventListener('click', () => {
-    amountNum.textContent = formatNumber();
-    backerNum.textContent = getNumber(backerNum) + 1;
+const addNumbers = function () {
+  amountNum.textContent = formatNumber();
+  backerNum.textContent = getNumber(backerNum) + 1;
 
-    progressBar.style.width = `${calcProgresBarWidth(
-      getNumber(amountNum),
-      100000
-    )}%`;
+  modalLarge.classList.add('is-none');
+  modalSmall.classList.add('is-modal-visible');
 
-    modalLarge.classList.add('is-none');
-    modalSmall.classList.add('is-modal-visible');
+  document.body.classList.remove('is-overflow');
+};
 
-    document.body.classList.remove('is-overflow');
-  })
-);
+const changeProgressBar = function () {
+  progressBar.style.width = `${calcProgresBarWidth(
+    getNumber(amountNum),
+    100000
+  )}%`;
+};
 
+// Event Listners
 hamburgerBtn.addEventListener('click', toggleNav);
 bookmarkBtn.addEventListener('click', toggleBookamrkBtn);
 
 selectBtns.forEach((btn) => btn.addEventListener('click', toggleModalBg));
-
 modalCloseBtns.forEach((btn) => btn.addEventListener('click', closeModal));
-
 checkboxes.forEach((checkbox) =>
   checkbox.addEventListener('click', toggleFigureStyles)
 );
-
 inputs.forEach((input) =>
-  input.addEventListener('input', (e) => validateInput(e))
+  input.addEventListener('input', (e) => validateInputs(e))
+);
+continueBtns.forEach((btn) =>
+  btn.addEventListener('click', () => {
+    addNumbers();
+    changeProgressBar();
+  })
 );
 
 window.addEventListener('load', () => {
   inputAmount = 0;
-  inputs.forEach((input) => {
-    input.value = '';
-  });
+  inputs.forEach((input) => (input.value = ''));
 });

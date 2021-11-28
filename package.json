@@ -2,9 +2,12 @@
   "name": "",
   "version": "1.0.0",
   "description": "",
+  "browserslist": "> 0.5%, last 5 versions, not dead",
   "scripts": {
     "watch:scss": "sass --watch scss/main.scss css/style.css",
-    "build:scss": "sass scss/main.scss css/style.css"
+    "build:scss": "sass scss/main.scss css/style.css",
+    "start:parcel": "parcel index.html",
+    "build:pracel": "parcel build index.html"
   },
   "author": "Ken Nersisyan",
   "license": "ISC",
@@ -12,6 +15,7 @@
     "eslint": "^8.3.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.3",
+    "parcel": "^2.0.1",
     "sass": "^1.43.4"
   }
 }

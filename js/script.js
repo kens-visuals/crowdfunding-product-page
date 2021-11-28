@@ -6,11 +6,20 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable func-names */
 
+import bookmarkImg from '../images/icon-bookmark.svg';
+import hamburgerImg from '../images/icon-hamburger.svg';
+import closeMenuImg from '../images/icon-close-menu.svg';
+
+if (module.hot) {
+  module.hot.accept();
+}
+
 let inputAmount = 0;
 
 // Navigation Variables
 const nav = document.querySelector('.js-nav');
 const bookmarkBtn = document.querySelector('.js-bookmark');
+const bookmarkImg = document.querySelector('.js-bookmark-img');
 const hamburgerBtn = document.querySelector('.js-hamburger');
 
 // Modals' Variables
@@ -33,11 +42,13 @@ const continueBtns = document.querySelectorAll('.js-continue');
 
 // Helper functions
 const setImg = (imgName, className) =>
-  `<img src="./images/${imgName}.svg" 
-        alt="" 
-        aria-hidden="true" 
-        class="crowdfund__${className}" 
+  `<img src="${imgName}.svg"
+        alt=""
+        aria-hidden="true"
+        class="crowdfund__${className}"
     />`;
+
+console.log(setImg(bookmarkImg, 'bookmark'));
 
 const classesRemover = (items, className) =>
   items.forEach((item) => item.classList.remove(className));
@@ -66,20 +77,20 @@ const setSuccessState = function (item) {
 const toggleNav = function () {
   if (!nav.classList.contains('open-nav')) {
     nav.classList.add('open-nav');
-    hamburgerBtn.innerHTML = setImg('icon-close-menu', 'hamburger');
+    hamburgerBtn.innerHTML = setImg(closeMenuImg, 'hamburger');
   } else {
     nav.classList.remove('open-nav');
-    hamburgerBtn.innerHTML = setImg('icon-hamburger', 'hamburger');
+    hamburgerBtn.innerHTML = setImg(hamburgerImg, 'hamburger');
   }
 };
 
 const toggleBookamrkBtn = function () {
   if (!bookmarkBtn.classList.contains('bookmarked')) {
     bookmarkBtn.classList.add('bookmarked');
-    bookmarkBtn.innerHTML = `${setImg('icon-bookmark', 'bookmark')} Bookmarked`;
+    bookmarkBtn.innerHTML = `${setImg(bookmarkImg, 'bookmark')} Bookmarked`;
   } else {
     bookmarkBtn.classList.remove('bookmarked');
-    bookmarkBtn.innerHTML = `${setImg('icon-bookmark', 'bookmark')} Bookmark`;
+    bookmarkBtn.innerHTML = `${setImg(bookmarkImg, 'bookmark')} Bookmark`;
   }
 };
 

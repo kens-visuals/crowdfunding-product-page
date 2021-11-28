@@ -41,8 +41,7 @@ Users should be able to:
   - If more than two dots are inserted for decimal places: `Can't have two dots`
   - If the user tries to insert a huge amount or invalid number of people: `WTF!!! WHO ARE YOU???`
   - If the input is anything other than a number or if it's a negative number: `Cannot be a letter or special character`
-  - If the user inserts less than required value: `Cannot be less than $25` or `Cannot be less than $75`
-    respectively
+  - If the user inserts less than required value: `Cannot be less than $25` or `Cannot be less than $75` respectively
 
 ### Screenshot
 
@@ -51,7 +50,7 @@ Users should be able to:
 ### Links
 
 - Live Site URL: [https://kens-crowdfund.netlify.app/](https://kens-crowdfund.netlify.app/)
-- Solution URL: [TO_BE_UPDATED](TO_BE_UPDATED)
+- Solution URL: [https://www.frontendmentor.io/solutions/crowdfunding-product-page-with-vanilla-js-scss-and-bem-TWbk3JbR1](https://www.frontendmentor.io/solutions/crowdfunding-product-page-with-vanilla-js-scss-and-bem-TWbk3JbR1)
 
 ## My process
 

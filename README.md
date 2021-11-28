@@ -1,4 +1,4 @@
-# Frontend Mentor - Crowdfunding Product Page solution
+# Frontend Mentor - Crowdfunding Product Page Solution
 
 This is a solution to the [Crowdfunding Product Page Challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/crowdfunding-product-page-7uvcZe7ZR).
 

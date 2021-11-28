@@ -61,7 +61,7 @@ Users should be able to:
 - SCSS custom properties
 - CSS Flexbox
 - CSS Grid
-- Vanila JS
+- Vanilla JS
 - Mobile-first workflow
 
 ### Developer tools

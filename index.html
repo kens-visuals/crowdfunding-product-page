@@ -35,6 +35,7 @@
           <button
             type="button"
             class="crowdfund__btn crowdfund__btn--hamburger js-hamburger"
+            aria-expanded="false"
           >
             <img
               src="./images/icon-hamburger.svg"
@@ -260,7 +261,7 @@
       >.
     </footer>
 
-    <div class="crowdfund__modal-bg js-modal-bg">
+    <div class="crowdfund__modal-bg js-modal-bg" aria-modal="true">
       <div class="crowdfund__modal crowdfund__modal--large js-modal">
         <button class="crowdfund__close js-modal-close">
           <img
@@ -475,7 +476,10 @@
         </figure>
       </div>
 
-      <div class="crowdfund__modal crowdfund__modal--small js-modal">
+      <div
+        class="crowdfund__modal crowdfund__modal--small js-modal"
+        aria-modal="true"
+      >
         <img
           src="./images/icon-check.svg"
           alt=""

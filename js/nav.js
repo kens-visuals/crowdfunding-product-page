@@ -16,9 +16,11 @@ const toggleNav = function () {
   if (!nav.classList.contains('open-nav')) {
     nav.classList.add('open-nav');
     hamburgerBtn.innerHTML = setImg(closeMenuImg, 'hamburger');
+    hamburgerBtn.setAttribute('aria-expanded', 'true');
   } else {
     nav.classList.remove('open-nav');
     hamburgerBtn.innerHTML = setImg(hamburgerImg, 'hamburger');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
   }
 };
 

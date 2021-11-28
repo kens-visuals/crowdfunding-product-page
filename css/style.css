@@ -480,11 +480,11 @@ body {
   filter: invert(68%) sepia(52%) saturate(4%) hue-rotate(22deg) brightness(97%) contrast(84%);
 }
 .crowdfund__btn--disabled {
-  background-color: rgba(122, 122, 122, 0.1);
+  background-color: #7a7a7a;
 }
 .crowdfund__btn--disabled:hover {
   cursor: not-allowed;
-  background-color: rgba(122, 122, 122, 0.1);
+  background-color: #7a7a7a;
 }
 .crowdfund__btn--modal {
   width: 50%;

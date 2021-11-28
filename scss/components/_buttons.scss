@@ -68,11 +68,11 @@
     }
 
     &--disabled {
-      background-color: rgba($color-secondary--dark, 0.1);
+      background-color: $color-secondary--dark;
 
       &:hover {
         cursor: not-allowed;
-        background-color: rgba($color-secondary--dark, 0.1);
+        background-color: $color-secondary--dark;
       }
     }
 

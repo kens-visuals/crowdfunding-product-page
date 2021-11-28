@@ -29,10 +29,7 @@ modals.inputs.forEach((input) =>
   input.addEventListener('input', (e) => figures.validateInputs(e))
 );
 figures.continueBtns.forEach((btn) =>
-  btn.addEventListener('click', () => {
-    figures.addNumbers();
-    figures.changeProgressBar();
-  })
+  btn.addEventListener('click', () => figures.addNumbersAndProgressBar())
 );
 
 window.addEventListener('load', () => {

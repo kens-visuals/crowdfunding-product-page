@@ -3,7 +3,7 @@
 /* eslint-disable no-return-assign */
 /* eslint-disable no-param-reassign */
 
-import { classesRemover, setSuccessState } from './helpers';
+import { classesRemover } from './helpers';
 
 const modalBg = document.querySelector('.js-modal-bg');
 const inputs = document.querySelectorAll('.js-input');
@@ -24,7 +24,10 @@ const closeModal = function () {
 
   inputs.forEach((input) => (input.value = ''));
 
-  errorTexts.forEach((text) => setSuccessState(text));
+  errorTexts.forEach((text) => {
+    text.classList.remove('error-text');
+    text.textContent = 'Enter your pledge';
+  });
 };
 
 const toggleModalBg = function () {

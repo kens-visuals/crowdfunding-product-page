@@ -1,7 +1,10 @@
+/* eslint-disable no-shadow */
 /* eslint-disable object-curly-newline */
 /* eslint-disable no-param-reassign */
 /* eslint-disable func-names */
 /* eslint-disable implicit-arrow-linebreak */
+
+// import { inputs } from './modals';
 
 const setImg = (imgName, className) =>
   `<img src="${imgName}"
@@ -13,12 +16,16 @@ const setImg = (imgName, className) =>
 const classesRemover = (items, className) =>
   items.forEach((item) => item.classList.remove(className));
 
-const setErrorState = function (item, msg) {
+const setErrorState = function (inputs, item, msg) {
+  inputs.forEach((input) => input.classList.add('has-error'));
+
   item.classList.add('error-text');
   item.textContent = msg;
 };
 
-const setSuccessState = function (item) {
+const setSuccessState = function (inputs, item) {
+  inputs.forEach((input) => input.classList.remove('has-error'));
+
   item.classList.remove('error-text');
   item.textContent = 'Enter your pledge';
 };

@@ -1,3 +1,5 @@
+/* eslint-disable nonblock-statement-body-position */
+/* eslint-disable curly */
 /* eslint-disable import/no-mutable-exports */
 /* eslint-disable func-names */
 /* eslint-disable comma-dangle */
@@ -18,6 +20,7 @@ let inputAmount = 0;
 const amountNum = document.querySelector('.js-amount-num');
 const backerNum = document.querySelector('.js-backers-num');
 const progressBar = document.querySelector('.js-progressbar');
+const inputs = document.querySelectorAll('.js-input');
 const modals = document.querySelectorAll('.js-modal');
 const figures = document.querySelectorAll('.js-figure');
 const selectBtns = document.querySelectorAll('.js-select');
@@ -44,36 +47,37 @@ const validateInputs = function (e) {
   };
 
   if (value === '0' || regExp.zero.test(value)) {
-    setErrorState(errorText, 'Cannot be zero or start with zero');
+    setErrorState(inputs, errorText, 'Cannot be zero or start with zero');
   } else if (value > 999999) {
-    setErrorState(errorText, 'WTF!!! WHO ARE YOU???');
+    setErrorState(inputs, errorText, 'WTF!!! WHO ARE YOU???');
   } else if (value < 0) {
-    setErrorState(errorText, 'Cannot be negative');
+    setErrorState(inputs, errorText, 'Cannot be negative');
   } else if (regExp.letter.test(value)) {
-    setErrorState(errorText, 'Cannot be a letter or special character');
+    setErrorState(inputs, errorText, 'Cannot be a letter or special character');
   } else if (value.split(/[\.]/).length > 2) {
-    setErrorState(errorText, "Can't have two dots");
-  } else if (id === 'amount-25' && value < 25) {
-    setErrorState(errorText, 'Cannot be less than $25');
-  } else if (id === 'amount-75' && value < 75) {
-    setErrorState(errorText, 'Cannot be less than $75');
+    setErrorState(inputs, errorText, "Can't have two dots");
+  } else if (id === 'amount-25' && value < 25 && value !== '') {
+    setErrorState(inputs, errorText, 'Cannot be less than $25');
+  } else if (id === 'amount-75' && value < 75 && value !== '') {
+    setErrorState(inputs, errorText, 'Cannot be less than $75');
   } else {
-    setSuccessState(errorText);
+    setSuccessState(inputs, errorText);
     inputAmount = value;
   }
 };
 
-const addNumbers = function () {
+const addNumbersAndProgressBar = function () {
+  if ([...inputs].some((input) => input.classList.contains('has-error')))
+    return;
+
   amountNum.textContent = formatNumber(inputAmount, amountNum);
-  backerNum.textContent = getNumber(backerNum) + 1;
+  backerNum.textContent = (getNumber(backerNum) + 1).toLocaleString('en');
 
   modalLarge.classList.add('is-none');
   modalSmall.classList.add('is-modal-visible');
 
   document.body.classList.remove('is-overflow');
-};
 
-const changeProgressBar = function () {
   progressBar.style.width = `${calcProgresBarWidth(
     getNumber(amountNum),
     100000
@@ -83,8 +87,7 @@ const changeProgressBar = function () {
 export {
   toggleFigureStyles,
   validateInputs,
-  addNumbers,
-  changeProgressBar,
+  addNumbersAndProgressBar,
   figures,
   checkedBlocks,
   selectBtns,

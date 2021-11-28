@@ -4,7 +4,7 @@
 /* eslint-disable implicit-arrow-linebreak */
 
 const setImg = (imgName, className) =>
-  `<img src="${imgName}.svg"
+  `<img src="${imgName}"
         alt=""
         aria-hidden="true"
         class="crowdfund__${className}"

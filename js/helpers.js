@@ -18,14 +18,12 @@ const classesRemover = (items, className) =>
 
 const setErrorState = function (inputs, item, msg) {
   inputs.forEach((input) => input.classList.add('has-error'));
-
   item.classList.add('error-text');
   item.textContent = msg;
 };
 
 const setSuccessState = function (inputs, item) {
   inputs.forEach((input) => input.classList.remove('has-error'));
-
   item.classList.remove('error-text');
   item.textContent = 'Enter your pledge';
 };

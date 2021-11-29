@@ -503,6 +503,7 @@ body {
   height: 1.1rem;
   border-radius: 1rem;
   background-color: #3cb4ac;
+  transition: all 0.7s ease-out;
 }
 .crowdfund__progressbar-container {
   background-color: rgba(122, 122, 122, 0.1);

@@ -91,6 +91,7 @@
     height: 1.1rem;
     border-radius: 1rem;
     background-color: $color-primary;
+    transition: all 0.7s ease-out;
 
     &-container {
       background-color: rgba($color-secondary--dark, 0.1);
